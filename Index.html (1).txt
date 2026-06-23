@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18 Month Love Anniversary ❤️</title>
+
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+background:linear-gradient(135deg,#ff9ec4,#a6d8ff);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+
+.container{
+background:white;
+width:100%;
+max-width:600px;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+
+h1{
+color:#ff4f8b;
+margin-bottom:15px;
+}
+
+
+button{
+background:#ff4f8b;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin-top:15px;
+}
+
+
+button:hover{
+opacity:0.9;
+}
+
+
+.question{
+font-size:22px;
+margin:20px 0;
+color:#444;
+}
+
+
+input{
+width:100%;
+padding:10px;
+border:1px solid #ccc;
+border-radius:8px;
+margin-top:10px;
+}
+
+
+.task{
+text-align:left;
+padding:10px;
+margin:8px 0;
+background:#f8f8f8;
+border-radius:10px;
+}
+
+
+.hidden{
+display:none;
+}
+
+
+.heart{
+font-size:60px;
+animation:beat 1s infinite;
+}
+
+
+@keyframes beat{
+50%{transform:scale(1.2);}
+}
+</style>
+</head>
+<body>
+
+
+<div class="container">
+
+
+<div id="welcome">
+<h1>❤️ Welcome My Love ❤️</h1>
+<p>
+Happy 18 Month Love Anniversary Journey!
+Before your surprise, answer 18 funny questions.
+</p>
+<button onclick="startQuestions()">Start</button>
+</div>
+
+
+<div id="questions" class="hidden">
+<h1>Funny Love Questions 😍</h1>
+<div class="question" id="questionText"></div>
+<input type="text" placeholder="Type anything..." />
+<button onclick="nextQuestion()">Next</button>
+</div>
+
+
+<div id="tasks" class="hidden">
+<h1>18 Cute Couple Tasks 📱</h1>
+
+
+<div id="taskList"></div>
+
+
+<button onclick="checkTasks()">Task Completed ❤️</button>
+</div>
+
+
+<div id="finalCard" class="hidden">
+<div class="heart">❤️</div>
+<h1>Happy 18 Month Anniversary</h1>
+
+
+<p style="margin-top:15px;font-size:18px;line-height:1.8;">
+My Dearest Love,<br><br>
+
+
+18 months ago, our beautiful journey began.
+Every laugh, every conversation, every memory with you
+has made my life brighter and happier.
+
+
+Thank you for being my favorite person,
+my comfort, my happiness, and my biggest blessing.
+
+
+No matter where life takes us,
+I always want you beside me.
+
+
+I love you more than yesterday
+and less than tomorrow.
+
+
+Happy 18 Months Together ❤️✨
+</p>
+
+
+<h2 style="margin-top:20px;color:#ff4f8b;">
+Forever Us 💕
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+const questions = [
+
+
+"1. If I were a vegetable, what would I be? 😂",
+"2. Who falls asleep first during calls? 😴",
+"3. Who is more dramatic? 🎭",
+"4. If we were cats, how many naps a day? 🐱",
+"5. What would you steal from me first? 😆",
+"6. Who sends more reels? 📱",
+"7. If I become invisible for a day? 👻",
+"8. Which emoji describes me? 😂",
+"9. Who apologizes first? 🤭",
+"10. If we switch phones for a day? 📲",
+"11. Which food am I secretly made of? 🍕",
+"12. Who talks more? 🗣️",
+"13. What superpower should I have? 🦸",
+"14. Who gets jealous faster? 😜",
+"15. What nickname should I get today? ❤️",
+"16. If we were in a movie? 🎬",
+"17. Who loves whom more? 😉",
+"18. Ready for your anniversary surprise? 💕"
+
+
+];
+
+
+let currentQuestion=0;
+
+
+function startQuestions(){
+document.getElementById("welcome").classList.add("hidden");
+document.getElementById("questions").classList.remove("hidden");
+showQuestion();
+}
+
+
+function showQuestion(){
+document.getElementById("questionText").innerText=
+questions[currentQuestion];
+}
+
+
+function nextQuestion(){
+
+
+currentQuestion++;
+
+
+if(currentQuestion<questions.length){
+showQuestion();
+}else{
+showTasks();
+}
+}
+
+
+const tasks = [
+
+
+"Send me your cutest selfie 📸",
+"Send a heart emoji ❤️",
+"Send a voice note 🎤",
+"Tell me 3 things you love about me 💕",
+"Share our favorite memory 🥰",
+"Send your current photo 🤳",
+"Type 'I Miss You' 💌",
+"Send a funny sticker 😂",
+"Share your favorite couple song 🎵",
+"Tell me your dream vacation with me ✈️",
+"Send 5 heart emojis ❤️❤️❤️❤️❤️",
+"Write one cute nickname for me 😘",
+"Tell me what made you smile today 😊",
+"Send our favorite photo 📷",
+"Type 'Forever Us' 💞",
+"Send a virtual hug 🤗",
+"Tell me one future plan together 🌈",
+"Say 'Happy 18 Months My Love' ❤️"
+
+
+];
+
+
+function showTasks(){
+
+
+document.getElementById("questions").classList.add("hidden");
+document.getElementById("tasks").classList.remove("hidden");
+
+
+let html="";
+
+
+tasks.forEach((task,index)=>{
+html += `
+<div class="task">
+<label>
+<input type="checkbox" class="taskCheck">
+${task}
+</label>
+</div>
+`;
+});
+
+
+document.getElementById("taskList").innerHTML=html;
+}
+
+
+function checkTasks(){
+
+
+let checks=document.querySelectorAll(".taskCheck");
+
+
+let allDone=true;
+
+
+checks.forEach(c=>{
+if(!c.checked) allDone=false;
+});
+
+
+if(!allDone){
+alert("Complete all 18 tasks first ❤️");
+return;
+}
+
+
+document.getElementById("tasks").classList.add("hidden");
+document.getElementById("finalCard").classList.remove("hidden");
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>
